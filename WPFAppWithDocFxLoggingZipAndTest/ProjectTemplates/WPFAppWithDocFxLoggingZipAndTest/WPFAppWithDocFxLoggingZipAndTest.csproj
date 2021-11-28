@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WPFAppWithDocFxLoggingAndZip1\WPFAppWithDocFxLoggingAndZip1.csproj" />
+    <ProjectReference Include="..\$specifiedsolutionname$\$specifiedsolutionname$.csproj" />
   </ItemGroup>
 
   <ItemGroup>

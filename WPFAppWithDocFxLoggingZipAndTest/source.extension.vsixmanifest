@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="WPFAppWithDocFxLoggingZipAndTest.93b6342c-0c8f-4c50-87e6-f0f96cad23b1" Version="9.0" Language="en-US" Publisher="Danny McNaught" />
+        <Identity Id="WPFAppWithDocFxLoggingZipAndTest.93b6342c-0c8f-4c50-87e6-f0f96cad23b1" Version="10.0" Language="en-US" Publisher="Danny McNaught" />
         <DisplayName>WPFAppWithDocFxLoggingZipAndTest</DisplayName>
         <Description xml:space="preserve">Microsoft Test app for WPFAppWithDocFxLoggingZip Template under Visual Studio 2022.</Description>
         <License>LICENSE</License>

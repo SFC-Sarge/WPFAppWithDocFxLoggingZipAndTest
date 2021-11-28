@@ -11,7 +11,7 @@ namespace WPFAppWithDocFxLoggingZipAndTest
         public const string Name = "WPFAppWithDocFxLoggingZipAndTest";
         public const string Description = @"Microsoft Test app for WPFAppWithDocFxLoggingZip Template under Visual Studio 2022.";
         public const string Language = "en-US";
-        public const string Version = "9.0";
+        public const string Version = "10.0";
         public const string Author = "Danny McNaught";
         public const string Tags = "WPF; CSharp; Test; Zip; Logging";
     }
