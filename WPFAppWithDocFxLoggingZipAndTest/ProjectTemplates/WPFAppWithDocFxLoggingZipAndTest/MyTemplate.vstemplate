@@ -35,7 +35,6 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="MainWindowTests.cs">MainWindowTests.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="TestController.cs">TestController.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="TestProperties.cs">TestProperties.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="UnitTest1.cs">UnitTest1.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="WpftestPropertiesValues.cs">WpftestPropertiesValues.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="ZipMethodsTests.cs">ZipMethodsTests.cs</ProjectItem>
     </Project>
