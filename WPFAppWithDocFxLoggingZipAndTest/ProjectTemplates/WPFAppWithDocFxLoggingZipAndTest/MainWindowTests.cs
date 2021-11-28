@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WPFAppWithDocFxLoggingAndZip1;
+using $specifiedsolutionname$;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.IO;
 using Microsoft.Extensions.Logging;
 using System.Xml.Linq;
 
-namespace WPFAppWithDocFxLoggingAndZip1.Tests
+namespace $safeprojectname$.Tests
 {
     [TestClass()]
     public class MainWindowTests

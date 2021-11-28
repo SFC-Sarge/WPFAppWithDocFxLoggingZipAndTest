@@ -7,7 +7,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Xml.Linq;
-using WPFAppWithDocFxLoggingAndZip1;
+using $specifiedsolutionname$;
 
 using $safeprojectname$.Properties;
 

@@ -3,11 +3,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
-using WPFAppWithDocFxLoggingAndZip1;
+using $specifiedsolutionname$;
 using $safeprojectname$;
 using $safeprojectname$.Properties;
 
-namespace WPFAppWithDocFxLoggingAndZip1.Tests
+namespace $safeprojectname$.Tests
 {
     [TestClass()]
     public class FileLoggerExtensionsTests
