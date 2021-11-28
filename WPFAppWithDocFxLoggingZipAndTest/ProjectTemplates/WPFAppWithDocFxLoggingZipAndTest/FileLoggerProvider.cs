@@ -19,16 +19,16 @@ namespace $safeprojectname$
         /// <summary>Initializes a new instance of the <see cref="FileLoggerProvider" /> class.</summary>
         /// <param name="name">The name.</param>
         /// <param name="logFolder">The log folder.</param>
-        public FileLoggerProvider(string? name = null, string logFolder = null) : this(File.CreateText(GetLogFileName(name, logFolder)))
+        public FileLoggerProvider(string? name = null, string? logFolder = null) : this(File.CreateText(GetLogFileName(name, logFolder)))
         {
         }
 
-    /// <summary>Initializes a new instance of the <see cref="FileLoggerProvider" /> class.</summary>
-    /// <param name="writer">The writer.</param>
-    public FileLoggerProvider(StreamWriter writer) => _writer = writer;
+        /// <summary>Initializes a new instance of the <see cref="FileLoggerProvider" /> class.</summary>
+        /// <param name="writer">The writer.</param>
+        public FileLoggerProvider(StreamWriter writer) => _writer = writer;
 
-    /// <summary>Initializes a new instance of the <see cref="T:System.Object" /> class.</summary>
-    public FileLoggerProvider()
+        /// <summary>Initializes a new instance of the <see cref="T:System.Object" /> class.</summary>
+        public FileLoggerProvider()
         {
         }
 
@@ -62,7 +62,9 @@ namespace $safeprojectname$
         {
             foreach (var logger in _loggers)
                 logger.Dispose();
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             _writer.Dispose();
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
     }
 }

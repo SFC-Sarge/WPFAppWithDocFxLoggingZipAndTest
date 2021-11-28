@@ -22,22 +22,26 @@ namespace $safeprojectname$.Tests
         {
             CurrentAppPath = FileLoggerProvider.AppPath();
             CurrentUnitTestLogDirValue = Path.Combine(CurrentAppPath, Resources.CurrentUnitTestLogDirValue);
-        if (!Directory.Exists(CurrentUnitTestLogDirValue))
-            Directory.CreateDirectory(CurrentUnitTestLogDirValue);
-        TestProperties.UnitTestLogger.LogInformation($"{context.FullyQualifiedTestClassName} Started Class Testing: ******************************************************************************************", true);
+            if (!Directory.Exists(CurrentUnitTestLogDirValue))
+                Directory.CreateDirectory(CurrentUnitTestLogDirValue);
+            TestProperties.UnitTestLogger.LogInformation($"{context.FullyQualifiedTestClassName} Started Class Testing: ******************************************************************************************", true);
             TestProperties.UnitTestLogger.LogInformation($"{Environment.NewLine}******************************************************************************************{Environment.NewLine}", true);
         }
         [TestInitialize]
         public void TestInitialize()
         {
             CurrentFileVersion = FileVersionInfo.GetVersionInfo($@"{FileLoggerProvider.AppPath()}\{FileLoggerProvider.AppName()}.exe").FileVersion;
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             TestProperties.UnitTestLogger.LogInformation($"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}(){Environment.NewLine}Start Test: ******************************************************************************************", true);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         [TestCleanup()]
         public void Cleanup()
         {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             if (TestContext.CurrentTestOutcome == UnitTestOutcome.Passed)
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             {
                 TestProperties.UnitTestLogger.LogInformation($"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}(){Environment.NewLine}Expected and Actual Are Equal or StartsWith! Test Result: {TestContext.CurrentTestOutcome}.", true);
             }
@@ -120,8 +124,8 @@ namespace $safeprojectname$.Tests
         {
             try
             {
-             FileLoggerProvider fileLoggerProvider = new();
-               // Arrange
+                FileLoggerProvider fileLoggerProvider = new();
+                // Arrange
                 string ExpectedLoggerValue = Resources.ExpectedILoggerValue;
                 TestProperties.UnitTestLogger.LogInformation($"FileLoggerProvider.CreateLogger({Resources.UnitTestLogFileName}): Expected Value:{Environment.NewLine}'{ExpectedLoggerValue.ToString(System.Globalization.CultureInfo.GetCultureInfo(Resources.cultures))}'", true);
                 // Act
@@ -142,4 +146,5 @@ namespace $safeprojectname$.Tests
             //}
         }
     }
+
 }

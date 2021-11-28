@@ -26,18 +26,22 @@ namespace $safeprojectname$.Tests
         {
             CurrentAppPath = FileLoggerProvider.AppPath();
             CurrentUnitTestLogDirValue = Path.Combine(CurrentAppPath, Resources.CurrentUnitTestLogDirValue);
-        if (!Directory.Exists(CurrentUnitTestLogDirValue))
-            Directory.CreateDirectory(CurrentUnitTestLogDirValue);
-        TestProperties.UnitTestLogger.LogInformation($"{context.FullyQualifiedTestClassName} Started Class Testing: ******************************************************************************************", true);
+            if (!Directory.Exists(CurrentUnitTestLogDirValue))
+                Directory.CreateDirectory(CurrentUnitTestLogDirValue);
+            TestProperties.UnitTestLogger.LogInformation($"{context.FullyQualifiedTestClassName} Started Class Testing: ******************************************************************************************", true);
             TestProperties.UnitTestLogger.LogInformation($"{Environment.NewLine}******************************************************************************************{Environment.NewLine}", true);
         }
         [TestInitialize]
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
         public void TestInitialize() => TestProperties.UnitTestLogger.LogInformation($"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}(){Environment.NewLine}Start Test: ******************************************************************************************", true);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
-    [TestCleanup()]
+        [TestCleanup()]
         public void Cleanup()
         {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             if (TestContext.CurrentTestOutcome == UnitTestOutcome.Passed)
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             {
                 TestProperties.UnitTestLogger.LogInformation($"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}(){Environment.NewLine}Expected and Actual Are Equal! Test Result: {TestContext.CurrentTestOutcome}.", true);
             }
@@ -58,7 +62,7 @@ namespace $safeprojectname$.Tests
                 TestProperties.UnitTestLogger.LogInformation($"FileLoggerProvider.AppPath(): Expected Value:{Environment.NewLine}'{true}'", true);
                 // Act
                 string ActualAppPathValue = FileLoggerProvider.AppPath();
-                TestProperties.UnitTestLogger.LogInformation($"FileLoggerProvider.AppPath(): Actual Value is not Null:{Environment.NewLine}'{ActualAppPathValue.ToString(System.Globalization.CultureInfo.GetCultureInfo( Resources.cultures))}'", true);
+                TestProperties.UnitTestLogger.LogInformation($"FileLoggerProvider.AppPath(): Actual Value is not Null:{Environment.NewLine}'{ActualAppPathValue.ToString(System.Globalization.CultureInfo.GetCultureInfo(Resources.cultures))}'", true);
                 // Assert
                 Assert.IsNotNull(ActualAppPathValue);
             }

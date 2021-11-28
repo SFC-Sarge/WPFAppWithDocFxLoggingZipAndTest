@@ -12,7 +12,7 @@ namespace $safeprojectname$
         /// <param name="name">The name.</param>
         /// <param name="logFolder">The log folder.</param>
         /// <returns>ILoggerFactory.</returns>
-        public static ILoggerFactory AddFile(this ILoggerFactory factory, string name, string logFolder)
+        public static ILoggerFactory? AddFile(this ILoggerFactory factory, string name, string logFolder)
         {
             if (factory == null || string.IsNullOrEmpty(value: name) || string.IsNullOrEmpty(value: logFolder))
                 return null;

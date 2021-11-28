@@ -56,9 +56,13 @@ namespace $safeprojectname$
         /// <param name="state">The state.</param>
         /// <param name="exception">The exception.</param>
         /// <param name="formatter">The formatter.</param>
+#pragma warning disable CS8767 // Nullability of reference types in type of parameter doesn't match implicitly implemented member (possibly because of nullability attributes).
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+#pragma warning restore CS8767 // Nullability of reference types in type of parameter doesn't match implicitly implemented member (possibly because of nullability attributes).
         {
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
             StreamWriter writer = _writer;
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
             if (writer == null)
                 return;
             string message = formatter(arg1: state, arg2: exception);

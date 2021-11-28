@@ -26,9 +26,9 @@ namespace $safeprojectname$.Tests
         {
             CurrentAppPath = FileLoggerProvider.AppPath();
             CurrentUnitTestLogDirValue = Path.Combine(CurrentAppPath, Resources.CurrentUnitTestLogDirValue);
-        if (!Directory.Exists(CurrentUnitTestLogDirValue))
-            Directory.CreateDirectory(CurrentUnitTestLogDirValue);
-        TestProperties.UnitTestLogger.LogInformation($"{context.FullyQualifiedTestClassName} Started Class Testing: ******************************************************************************************", true);
+            if (!Directory.Exists(CurrentUnitTestLogDirValue))
+                Directory.CreateDirectory(CurrentUnitTestLogDirValue);
+            TestProperties.UnitTestLogger.LogInformation($"{context.FullyQualifiedTestClassName} Started Class Testing: ******************************************************************************************", true);
             TestProperties.UnitTestLogger.LogInformation($"{Environment.NewLine}******************************************************************************************{Environment.NewLine}", true);
         }
         [TestInitialize]
@@ -38,13 +38,17 @@ namespace $safeprojectname$.Tests
                     .AddLogging()
                     .BuildServiceProvider();
             logger = serviceProvider.GetService<ILoggerFactory>().CreateLogger<TestController>();
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             TestProperties.UnitTestLogger.LogInformation($"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}(){Environment.NewLine}Start Test: ******************************************************************************************", true);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         [TestCleanup()]
         public void Cleanup()
         {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             if (TestContext.CurrentTestOutcome == UnitTestOutcome.Passed)
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             {
                 TestProperties.UnitTestLogger.LogInformation($"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}(){Environment.NewLine}Expected and Actual Are Equal! Test Result: {TestContext.CurrentTestOutcome}.", true);
             }
@@ -52,7 +56,9 @@ namespace $safeprojectname$.Tests
             {
                 TestProperties.UnitTestLogger.LogWarning($"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}(){Environment.NewLine}Test Result: {TestContext.CurrentTestOutcome}.", true);
             }
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             serviceProvider.GetService<ILoggerFactory>().Dispose();
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             TestProperties.UnitTestLogger.LogInformation($"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}(){Environment.NewLine}End Test: ******************************************************************************************{Environment.NewLine}", true);
             TestProperties.UnitTestLogger.LogInformation($"******************************************************************************************{Environment.NewLine}", true);
         }
@@ -79,7 +85,9 @@ namespace $safeprojectname$.Tests
             }
             finally
             {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 ActualFactory.Dispose();
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
         }
 
@@ -244,4 +252,5 @@ namespace $safeprojectname$.Tests
             }
         }
     }
+
 }
