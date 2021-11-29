@@ -19,7 +19,9 @@ namespace $safeprojectname$
         /// <summary>Initializes a new instance of the <see cref="FileLoggerProvider" /> class.</summary>
         /// <param name="name">The name.</param>
         /// <param name="logFolder">The log folder.</param>
+#pragma warning disable CS8604 // Possible null reference argument.
         public FileLoggerProvider(string? name = null, string? logFolder = null) : this(File.CreateText(GetLogFileName(name, logFolder)))
+#pragma warning restore CS8604 // Possible null reference argument.
         {
         }
 
@@ -52,7 +54,9 @@ namespace $safeprojectname$
         /// <returns>The instance of <see cref="T:Microsoft.Extensions.Logging.ILogger" /> that was created.</returns>
         public ILogger CreateLogger(string categoryName)
         {
+#pragma warning disable CS8604 // Possible null reference argument.
             FileLogger logger = new(categoryName, _writer);
+#pragma warning restore CS8604 // Possible null reference argument.
             _loggers.Add(logger);
             return logger;
         }

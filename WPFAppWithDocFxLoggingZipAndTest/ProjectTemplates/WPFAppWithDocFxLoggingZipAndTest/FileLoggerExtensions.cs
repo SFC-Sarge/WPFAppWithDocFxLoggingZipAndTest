@@ -26,7 +26,9 @@ namespace $safeprojectname$
         /// <param name="logLevel">The log level.</param>
         /// <param name="message">The message.</param>
         /// <param name="args">The arguments.</param>
+#pragma warning disable CA2254 // Template should be a static expression
         public static void Log(this ILogger logger, LogLevel logLevel, string message, params object[]? args) => logger.Log(logLevel: logLevel, eventId: 0, exception: null, message: message, args: args);
+#pragma warning restore CA2254 // Template should be a static expression
 
         /// <summary>Logs the specified log level.</summary>
         /// <param name="logger">The logger.</param>
@@ -37,9 +39,11 @@ namespace $safeprojectname$
         /// <param name="args">The arguments.</param>
         public static void Log(this ILogger logger, LogLevel logLevel, Exception exception, string message, bool includeStackTrace = false, params object[]? args)
         {
-        if (includeStackTrace)
-            message += $"{Environment.NewLine}Stack Trace: {exception.StackTrace}";
-        logger.Log(logLevel: logLevel, eventId: 0, exception: exception, message: message, args: args);
+            if (includeStackTrace)
+                message += $"{Environment.NewLine}Stack Trace: {exception.StackTrace}";
+#pragma warning disable CS8604 // Possible null reference argument.
+            logger.Log(logLevel: logLevel, eventId: 0, exception: exception, message: message, args: args);
+#pragma warning restore CS8604 // Possible null reference argument.
         }
 
         /// <summary>Logs the error.</summary>

@@ -37,7 +37,9 @@ namespace $safeprojectname$.Tests
             serviceProvider = new ServiceCollection()
                     .AddLogging()
                     .BuildServiceProvider();
+#pragma warning disable CS8604 // Possible null reference argument.
             logger = serviceProvider.GetService<ILoggerFactory>().CreateLogger<TestController>();
+#pragma warning restore CS8604 // Possible null reference argument.
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
             TestProperties.UnitTestLogger.LogInformation($"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}(){Environment.NewLine}Start Test: ******************************************************************************************", true);
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
@@ -57,7 +59,9 @@ namespace $safeprojectname$.Tests
                 TestProperties.UnitTestLogger.LogWarning($"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}(){Environment.NewLine}Test Result: {TestContext.CurrentTestOutcome}.", true);
             }
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
+#pragma warning disable CS8604 // Possible null reference argument.
             serviceProvider.GetService<ILoggerFactory>().Dispose();
+#pragma warning restore CS8604 // Possible null reference argument.
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             TestProperties.UnitTestLogger.LogInformation($"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}(){Environment.NewLine}End Test: ******************************************************************************************{Environment.NewLine}", true);
             TestProperties.UnitTestLogger.LogInformation($"******************************************************************************************{Environment.NewLine}", true);
@@ -98,7 +102,9 @@ namespace $safeprojectname$.Tests
             {
                 // Arrange
                 string ExpectedLogMessage = Resources.UnitTestLogMessage;
+#pragma warning disable CS8604 // Possible null reference argument.
                 logMessage = new TestController(logger, ExpectedLogMessage);
+#pragma warning restore CS8604 // Possible null reference argument.
                 TestProperties.UnitTestLogger.LogInformation($"FileLoggerExtensions.Log(): Expected Value:{Environment.NewLine}'{ExpectedLogMessage.ToString(System.Globalization.CultureInfo.GetCultureInfo(Resources.cultures))}'", true);
                 // Act
                 string ActualLogMessage = logMessage.GetMessage();
@@ -121,7 +127,9 @@ namespace $safeprojectname$.Tests
             {
                 // Arrange
                 string ExpectedLogMessage = Resources.UnitTestLogMessage;
+#pragma warning disable CS8604 // Possible null reference argument.
                 logMessage = new TestController(logger, ExpectedLogMessage);
+#pragma warning restore CS8604 // Possible null reference argument.
                 TestProperties.UnitTestLogger.LogInformation($"FileLoggerExtensions.Log(): Expected Value:{Environment.NewLine}'{ExpectedLogMessage.ToString(System.Globalization.CultureInfo.GetCultureInfo(Resources.cultures))}'", true);
                 // Act
                 string ActualLogMessage = logMessage.GetMessage();
@@ -144,7 +152,9 @@ namespace $safeprojectname$.Tests
             {
                 // Arrange
                 string ExpectedLogErrorMessage = Resources.UnitTestLogErrorMessage;
+#pragma warning disable CS8604 // Possible null reference argument.
                 logMessage = new TestController(logger, ExpectedLogErrorMessage);
+#pragma warning restore CS8604 // Possible null reference argument.
                 TestProperties.UnitTestLogger.LogInformation($"FileLoggerExtensions.LogError(): Expected Value:{Environment.NewLine}'{ExpectedLogErrorMessage.ToString(System.Globalization.CultureInfo.GetCultureInfo(Resources.cultures))}'", true);
                 // Act
                 string ActualLogErrorMessage = logMessage.GetMessage();
@@ -167,7 +177,9 @@ namespace $safeprojectname$.Tests
             {
                 // Arrange
                 string ExpectedLogInformationMessage = Resources.UnitTestLogInformationMessage;
+#pragma warning disable CS8604 // Possible null reference argument.
                 logMessage = new TestController(logger, ExpectedLogInformationMessage);
+#pragma warning restore CS8604 // Possible null reference argument.
                 TestProperties.UnitTestLogger.LogInformation($"FileLoggerExtensions.LogInformation(): Expected Value:{Environment.NewLine}'{ExpectedLogInformationMessage.ToString(System.Globalization.CultureInfo.GetCultureInfo(Resources.cultures))}'", true);
                 // Act
                 string ActualLogInformationMessage = logMessage.GetMessage();
@@ -190,7 +202,9 @@ namespace $safeprojectname$.Tests
             {
                 // Arrange
                 string ExpectedLogTraceMessage = Resources.UnitTestLogTraceMessage;
+#pragma warning disable CS8604 // Possible null reference argument.
                 logMessage = new TestController(logger, ExpectedLogTraceMessage);
+#pragma warning restore CS8604 // Possible null reference argument.
                 TestProperties.UnitTestLogger.LogInformation($"FileLoggerExtensions.LogTrace(): Expected Value:{Environment.NewLine}'{ExpectedLogTraceMessage.ToString(System.Globalization.CultureInfo.GetCultureInfo(Resources.cultures))}'", true);
                 // Act
                 string ActualLogTraceMessage = logMessage.GetMessage();
@@ -213,7 +227,9 @@ namespace $safeprojectname$.Tests
             {
                 // Arrange
                 string ExpectedLogDebugMessage = Resources.UnitTestLogDebugMessage;
+#pragma warning disable CS8604 // Possible null reference argument.
                 logMessage = new TestController(logger, ExpectedLogDebugMessage);
+#pragma warning restore CS8604 // Possible null reference argument.
                 TestProperties.UnitTestLogger.LogInformation($"FileLoggerExtensions.LogDebug(): Expected Value:{Environment.NewLine}'{ExpectedLogDebugMessage.ToString(System.Globalization.CultureInfo.GetCultureInfo(Resources.cultures))}'", true);
                 // Act
                 string ActualLogDebugMessage = logMessage.GetMessage();
@@ -236,7 +252,9 @@ namespace $safeprojectname$.Tests
             {
                 // Arrange
                 string ExpectedLogWarningMessage = Resources.UnitTestLogWarningMessage;
+#pragma warning disable CS8604 // Possible null reference argument.
                 logMessage = new TestController(logger, ExpectedLogWarningMessage);
+#pragma warning restore CS8604 // Possible null reference argument.
                 TestProperties.UnitTestLogger.LogInformation($"FileLoggerExtensions.LogWarning(): Expected Value:{Environment.NewLine}'{ExpectedLogWarningMessage.ToString(System.Globalization.CultureInfo.GetCultureInfo(Resources.cultures))}'", true);
                 // Act
                 string ActualLogWarningMessage = logMessage.GetMessage();
@@ -252,5 +270,4 @@ namespace $safeprojectname$.Tests
             }
         }
     }
-
 }
