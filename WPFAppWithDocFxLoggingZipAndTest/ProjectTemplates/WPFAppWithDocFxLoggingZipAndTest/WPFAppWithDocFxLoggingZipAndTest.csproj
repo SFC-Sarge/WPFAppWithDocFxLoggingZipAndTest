@@ -9,6 +9,13 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+	<ItemGroup>
+		<ProjectCapability Include="DiagnoseCapabilities" />
+		<ProjectCapability Include="Microsoft.Extensions.Logging" />
+		<ProjectCapability Include="Docfx.Console" />
+		<ProjectCapability Include="System.IO.Compression"/>
+	</ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="DumpExtensions" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
